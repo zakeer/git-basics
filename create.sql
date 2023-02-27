@@ -1,0 +1,5 @@
+INSERT INTO table_name (
+	COLUMN_NAME
+) VALUES (
+	"COLUMN VALUE"
+);
