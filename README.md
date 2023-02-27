@@ -28,7 +28,13 @@ git commit -m "New files added"
 git remote add origin URL
 ```
 
-5. Push your changes to remote
+5. Config repo user
+```
+git config user.email="your@mail.com"
+git config user.name="YOUR name"
+```
+
+6. Push your changes to remote
 ```
 git push -u origin master
 ```
