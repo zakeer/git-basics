@@ -211,3 +211,38 @@ A **remote** is a Git repository that is stored outside of your local computer (
     ```bash
     git push --set-upstream origin main
     ```
+
+
+## Git and Github flow
+
+```mermaid
+graph TD
+    subgraph Local Git Workflow
+        A[Start] --> B(git init);
+        B --> C{git add};
+        C -- Staged --> D(git commit);
+        C -- Unstaged --> E(git reset);
+        D --> F{Branch?};
+        F -- Yes --> G(git branch);
+        G --> H(git checkout);
+        H --> I{Make Changes};
+        I --> J(git add);
+        J --> K(git commit);
+        K --> L(git checkout main);
+        L --> M(git merge);
+        M --> N{Conflicts?};
+        N -- Yes --> O(Resolve Conflicts & git add & git commit);
+        N -- No --> P(Merged);
+        H --> I;
+        P --> Q(End Local);
+        O --> Q;
+        F -- No --> Q;
+    end
+
+    subgraph GitHub Interaction
+        R[Create Repo on GitHub] --> S(git remote add origin);
+        S --> T(git push origin main);
+        Q --> T;
+        T --> U(End GitHub);
+    end
+```
